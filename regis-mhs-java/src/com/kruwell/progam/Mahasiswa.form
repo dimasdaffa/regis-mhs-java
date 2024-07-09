@@ -245,11 +245,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hapus"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbhapusActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="tbbatal">
       <Properties>
         <Property name="text" type="java.lang.String" value="Batal"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbbatalActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="tbkeluar">
       <Properties>
