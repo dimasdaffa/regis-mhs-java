@@ -4,9 +4,14 @@
  */
 package com.kruwell.progam;
 
+import java.awt.HeadlessException;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException; 
 import java.sql.Connection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +23,7 @@ public class Mahasiswa extends javax.swing.JFrame {
          txtnama.setText(null);
          txtemail.setText(null);
          txtalamat.setText(null);
+         txtlahir.setText(null);
          txttelp.setText(null);
          cbkelamin.setSelectedItem(this);
      }
@@ -44,7 +50,7 @@ public class Mahasiswa extends javax.swing.JFrame {
              java.sql.ResultSet res = stm.executeQuery(sql);
              
              while(res.next()){
-                 model.addRow(new Object[]{no++,res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
+                 model.addRow(new Object[]{no++,res.getString(1),res.getString(2),res.getString(3),res.getDate(4),res.getString(5),res.getString(6)});
                  
              }
              tabelmahasiswa.setModel(model);
@@ -113,6 +119,12 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         jLabel6.setText("No.teplon : ");
 
+        txtlahir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtlahirActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Jenis Kelamin : ");
 
         cbkelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki Laki ", "Perempuan" }));
@@ -143,6 +155,11 @@ public class Mahasiswa extends javax.swing.JFrame {
         });
 
         tbsimpan.setText("Simpan");
+        tbsimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbsimpanActionPerformed(evt);
+            }
+        });
 
         tbedit.setText("Edit");
 
@@ -258,7 +275,51 @@ public class Mahasiswa extends javax.swing.JFrame {
     private void tbtambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtambahActionPerformed
         // TODO add your handling code here:
         kosongkan_form();
+       
     }//GEN-LAST:event_tbtambahActionPerformed
+
+    private void tbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbsimpanActionPerformed
+        // TODO add your handling code here:
+        try{
+        String nama = txtnama.getText();
+        String email = txtemail.getText();
+        String alamat = txtalamat.getText();
+        String telp = txttelp.getText();
+        String kelamin = cbkelamin.getSelectedItem().toString();
+        
+           String tanggalLahir = txtlahir.getText();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date parsedDate;
+        try {
+            parsedDate = dateFormat.parse(tanggalLahir);
+            tanggalLahir = dateFormat.format(parsedDate);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Incorrect date format. Please use yyyy-MM-dd.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String sql = "INSERT INTO mahasiswa (nama, email, alamat, tgllahir, telp, kelamin) VALUES (?, ?, ?, ?, ?, ?)";
+        java.sql.Connection conn = (Connection) Konfig.configDB();
+        java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+        pstm.setString(1, nama);
+        pstm.setString(2, email);
+        pstm.setString(3, alamat);
+        pstm.setString(4, tanggalLahir);
+        pstm.setString(5, telp);
+        pstm.setString(6, kelamin);
+        pstm.execute();
+        
+          JOptionPane.showMessageDialog(null, "Proses simpan data berhasil");
+          tampilkan_data();
+          kosongkan_form();
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_tbsimpanActionPerformed
+
+    private void txtlahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlahirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtlahirActionPerformed
 
     /**
      * @param args the command line arguments
