@@ -123,6 +123,11 @@ public class Mahasiswa extends javax.swing.JFrame {
         cbagama = new javax.swing.JComboBox<>();
         jlabel10 = new javax.swing.JLabel();
         txtkewarganegaraan = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         cbkelamin1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki Laki ", "Perempuan" }));
         cbkelamin1.addActionListener(new java.awt.event.ActionListener() {
@@ -244,6 +249,31 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         jlabel10.setText("Kewarganegaraan :");
 
+        jMenu1.setText("Menu");
+
+        jMenuItem1.setText("Input Mahasiswa");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Info Pendaftaran");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Login");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -300,7 +330,7 @@ public class Mahasiswa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -340,7 +370,7 @@ public class Mahasiswa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlabel10)
                     .addComponent(txtkewarganegaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbtambah)
                     .addComponent(tbsimpan)
@@ -364,6 +394,18 @@ public class Mahasiswa extends javax.swing.JFrame {
     private void cbagamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbagamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbagamaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+                        this.setVisible(false);
+                new Mahasiswa().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+          this.setVisible(false);
+                new Login().setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void tbbatalActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tbbatalActionPerformed
         // TODO add your handling code here:
@@ -613,6 +655,11 @@ public class Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlabel10;
     private javax.swing.JLabel jlabel8;
