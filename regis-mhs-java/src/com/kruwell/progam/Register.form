@@ -37,8 +37,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtusername" max="32767" attributes="0"/>
-                          <Component id="txtpassword" pref="158" max="32767" attributes="0"/>
+                          <Component id="txtusername" pref="158" max="32767" attributes="0"/>
+                          <Component id="txtpassword" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -112,7 +112,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtusername">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtpassword">
+    <Component class="javax.swing.JPasswordField" name="txtpassword">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpasswordActionPerformed"/>
       </Events>

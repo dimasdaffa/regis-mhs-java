@@ -44,8 +44,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtusername" max="32767" attributes="0"/>
-                                  <Component id="txtpassword" pref="141" max="32767" attributes="0"/>
+                                  <Component id="txtusername" pref="141" max="32767" attributes="0"/>
+                                  <Component id="txtpassword" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -106,8 +106,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnloginActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtpassword">
-    </Component>
     <Component class="javax.swing.JButton" name="btnregister">
       <Properties>
         <Property name="text" type="java.lang.String" value="Register"/>
@@ -115,6 +113,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnregisterActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtpassword">
     </Component>
   </SubComponents>
 </Form>

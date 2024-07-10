@@ -36,7 +36,7 @@ public class Register extends javax.swing.JFrame {
         btncancel = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
         txtusername = new javax.swing.JTextField();
-        txtpassword = new javax.swing.JTextField();
+        txtpassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,8 +82,8 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtusername)
-                            .addComponent(txtpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))))
+                            .addComponent(txtusername, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(txtpassword))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 170, Short.MAX_VALUE)
@@ -115,10 +115,6 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtpasswordActionPerformed
-
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
         try{
@@ -144,6 +140,11 @@ public class Register extends javax.swing.JFrame {
         this.setVisible(false);
         new Login().setVisible(true); 
     }//GEN-LAST:event_btncancelActionPerformed
+
+    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtpasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +187,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtpassword;
+    private javax.swing.JPasswordField txtpassword;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }
