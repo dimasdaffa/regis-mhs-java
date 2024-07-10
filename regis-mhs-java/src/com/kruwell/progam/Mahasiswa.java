@@ -29,6 +29,7 @@ public class Mahasiswa extends javax.swing.JFrame {
         cbkelamin.setSelectedItem(this);
         cbjurusan.setSelectedItem(this);
         cbagama.setSelectedItem(this);
+        txtkewarganegaraan.setText(null);
     }
 
     /** menampilkan data dalam tabel **/
@@ -43,6 +44,7 @@ public class Mahasiswa extends javax.swing.JFrame {
         model.addColumn("Jenis Kelamin");
         model.addColumn("Jurusan");
         model.addColumn("Agama");
+        model.addColumn("Kewarganegaraan");
 
         try {
             int no = 1;
@@ -61,7 +63,8 @@ public class Mahasiswa extends javax.swing.JFrame {
                         res.getString("telp"),
                         res.getString("kelamin"),
                         res.getString("jurusan"),
-                        res.getString("agama")
+                        res.getString("agama"),
+                        res.getString("kewarganegaraan")
                 });
             }
             tabelmahasiswa.setModel(model);
@@ -118,6 +121,8 @@ public class Mahasiswa extends javax.swing.JFrame {
         cbjurusan = new javax.swing.JComboBox<>();
         jlabel9 = new javax.swing.JLabel();
         cbagama = new javax.swing.JComboBox<>();
+        jlabel10 = new javax.swing.JLabel();
+        txtkewarganegaraan = new javax.swing.JTextField();
 
         cbkelamin1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki Laki ", "Perempuan" }));
         cbkelamin1.addActionListener(new java.awt.event.ActionListener() {
@@ -237,6 +242,8 @@ public class Mahasiswa extends javax.swing.JFrame {
             }
         });
 
+        jlabel10.setText("Kewarganegaraan :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -249,7 +256,7 @@ public class Mahasiswa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -260,19 +267,11 @@ public class Mahasiswa extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(tbtambah)
                                     .addComponent(jlabel8)
-                                    .addComponent(jlabel9))
+                                    .addComponent(jlabel9)
+                                    .addComponent(jlabel10))
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(tbsimpan)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(tbedit)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(tbhapus)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(tbbatal)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(tbkeluar))
+                                    .addComponent(txtkewarganegaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(cbjurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -285,8 +284,18 @@ public class Mahasiswa extends javax.swing.JFrame {
                                                 .addComponent(txtlahir))
                                             .addComponent(txttelp)
                                             .addComponent(cbkelamin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(cbagama, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                                        .addComponent(cbagama, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tbsimpan)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(tbedit)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(tbhapus)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(tbbatal)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(tbkeluar)))))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +336,11 @@ public class Mahasiswa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlabel9)
                     .addComponent(cbagama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlabel10)
+                    .addComponent(txtkewarganegaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbtambah)
                     .addComponent(tbsimpan)
@@ -420,6 +433,7 @@ public class Mahasiswa extends javax.swing.JFrame {
             String kelamin = cbkelamin.getSelectedItem().toString();
             String jurusan = cbjurusan.getSelectedItem().toString();
             String agama = cbagama.getSelectedItem().toString();
+            String kewarganegaraan = txtkewarganegaraan.getText();
 
             String tanggalLahir = txtlahir.getText();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -433,7 +447,7 @@ public class Mahasiswa extends javax.swing.JFrame {
                 return;
             }
 
-            String sql = "INSERT INTO mahasiswa (nama, email, alamat, tgllahir, telp, kelamin, jurusan,agama) VALUES (?,?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO mahasiswa (nama, email, alamat, tgllahir, telp, kelamin, jurusan,agama, kewarganegaraan) VALUES (?,?,?, ?, ?, ?, ?, ?, ?)";
             java.sql.Connection conn = (Connection) Konfig.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, nama);
@@ -444,6 +458,7 @@ public class Mahasiswa extends javax.swing.JFrame {
             pstm.setString(6, kelamin);
             pstm.setString(7, jurusan);
             pstm.setString(8, agama);
+            pstm.setString(9, kewarganegaraan);
             pstm.execute();
 
             JOptionPane.showMessageDialog(null, "Proses simpan data berhasil");
@@ -486,6 +501,9 @@ public class Mahasiswa extends javax.swing.JFrame {
         String agama = tabelmahasiswa.getValueAt(baris, 8).toString();
         cbagama.setSelectedItem(agama);
 
+        String kewarganegaraan = tabelmahasiswa.getValueAt(baris, 9).toString();
+        txtkewarganegaraan.setText(kewarganegaraan);
+
     }// GEN-LAST:event_tabelmahasiswaMouseClicked
 
     private void tbeditActionPerformed(java.awt.event.ActionEvent evt) {
@@ -504,6 +522,7 @@ public class Mahasiswa extends javax.swing.JFrame {
             String kelamin = cbkelamin.getSelectedItem().toString();
             String jurusan = cbjurusan.getSelectedItem().toString();
             String agama = cbagama.getSelectedItem().toString();
+            String kewarganegaran = txtkewarganegaraan.getText();
 
             String tanggalLahir = txtlahir.getText();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -519,7 +538,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
             String originalNama = tabelmahasiswa.getValueAt(selectedRow, 1).toString();
 
-            String sql = "UPDATE mahasiswa SET nama = ?, email = ?, alamat = ?, tgllahir = ?, telp = ?, kelamin = ?, jurusan = ?, agama = ?  WHERE nama = ?";
+            String sql = "UPDATE mahasiswa SET nama = ?, email = ?, alamat = ?, tgllahir = ?, telp = ?, kelamin = ?, jurusan = ?, agama = ?,  kewarganegaraan = ?  WHERE nama = ?";
             java.sql.Connection conn = (Connection) Konfig.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, nama);
@@ -530,7 +549,8 @@ public class Mahasiswa extends javax.swing.JFrame {
             pstm.setString(6, kelamin);
             pstm.setString(7, jurusan);
             pstm.setString(8, agama);
-            pstm.setString(9, originalNama);
+            pstm.setString(9, kewarganegaran);
+            pstm.setString(10, originalNama);
             pstm.execute();
 
             JOptionPane.showMessageDialog(null, "Data berhasil diperbarui.");
@@ -594,6 +614,7 @@ public class Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jlabel10;
     private javax.swing.JLabel jlabel8;
     private javax.swing.JLabel jlabel9;
     private javax.swing.JTable tabelmahasiswa;
@@ -605,6 +626,7 @@ public class Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton tbtambah;
     private javax.swing.JTextField txtalamat;
     private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtkewarganegaraan;
     private javax.swing.JTextField txtlahir;
     private javax.swing.JTextField txtnama;
     private javax.swing.JTextField txttelp;
